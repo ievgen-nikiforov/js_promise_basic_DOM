@@ -1,19 +1,15 @@
 const logo = document.getElementsByClassName('logo')[0];
 
 logo.addEventListener('click', function () {
-  const promise1 = new Promise((resolve, reject) => {
-    resolve();
+  new Promise((resolve, reject) => {
+    resolve(successHandler());
   });
-
-  promise1.then(successHandler).catch(errorHandler);
 });
 
 setTimeout(() => {
-  const promise2 = new Promise((resolve, reject) => {
-    reject();
+  new Promise((resolve, reject) => {
+    reject(errorHandler());
   });
-
-  promise2.then(successHandler).catch(errorHandler);
 }, 3000);
 
 function successHandler() {
